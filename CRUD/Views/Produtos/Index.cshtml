@@ -1,0 +1,30 @@
+@model List<CRUD.Models.Produto>
+
+<h2>Lista de Produtos</h2>
+
+<p>
+    <a asp-action="Adicionar" class="btn btn-primary">Adicionar Novo Produto</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var produto in Model)
+        {
+            <tr>
+                <td>@produto.Id</td>
+                <td>@produto.Nome</td>
+                <td>
+                    <a asp-action="Editar" asp-route-id="@produto.Id" class="btn btn-success">Editar</a>
+                    <a asp-action="Remover" asp-route-id="@produto.Id" class="btn btn-danger">Remover</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
